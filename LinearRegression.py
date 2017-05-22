@@ -3,7 +3,7 @@ import numpy as np
 
 class LinearRegression(object):
     """
-    Basic LinearRegression
+    Basic Linear Regression
 
     Parameters
     ----------
@@ -32,7 +32,7 @@ class LinearRegression(object):
 
     def fit(self, X, y):
         """
-        Fit LinearRegression with gradient descent
+        Fit Linear Regression with gradient descent
 
         Parameters
         ----------
