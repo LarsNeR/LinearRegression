@@ -3,7 +3,7 @@ import numpy as np
 
 class LinearRegression(object):
     """
-    Basic Linear Regression
+    Basic LinearRegression
 
     Parameters
     ----------
@@ -32,7 +32,7 @@ class LinearRegression(object):
 
     def fit(self, X, y):
         """
-        Fit Linear Regression with gradient descent
+        Fit LinearRegression with gradient descent
 
         Parameters
         ----------
@@ -50,8 +50,7 @@ class LinearRegression(object):
             # Gradient descent
             self.weights -= self.eta * np.dot(X.T, self.costs(X, y)) / len(y)
 
-            # Append current costs (just for visualization
-            # purposes)
+            # Append current costs (just for visualization purposes)
             self.costs_per_iter.append(np.absolute(self.costs(X, y)).sum())
 
     def costs(self, X, y):
