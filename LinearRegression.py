@@ -24,7 +24,7 @@ class LinearRegression(object):
         Contains the sum of costs for every iteration
     """
 
-    def __init__(self, n_iter=100000, eta=0.01):
+    def __init__(self, n_iter=1000, eta=0.1):
         self.n_iter = n_iter
         self.eta = eta
         self.weights = []
@@ -50,7 +50,8 @@ class LinearRegression(object):
             # Gradient descent
             self.weights -= self.eta * np.dot(X.T, self.costs(X, y)) / len(y)
 
-            # Append current costs (not necessary, just for visualization purposes)
+            # Append current costs (just for visualization
+            # purposes)
             self.costs_per_iter.append(np.absolute(self.costs(X, y)).sum())
 
     def costs(self, X, y):
