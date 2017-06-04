@@ -42,6 +42,7 @@ class LinearRegression(object):
         y : numpy array, shape (m_samples, )
             Target values
         """
+        X = self.add_column_with_ones(X)
 
         self.weights = np.zeros(X.shape[1])
         self.weights_tmp = np.zeros(X.shape[1])
@@ -54,7 +55,10 @@ class LinearRegression(object):
             self.costs_per_iter.append(np.absolute(self.costs(X, y)).sum())
 
     def costs(self, X, y):
-        return self.predict(X) - y
+        return self.X_dot_weights(X) - y
+
+    def X_dot_weights(self, X):
+        return np.dot(X, self.weights)
 
     def predict(self, X):
         """
@@ -70,4 +74,11 @@ class LinearRegression(object):
         prediction : numpy array, shape(m_samples, )
             Prediction for every sample in X
         """
-        return np.dot(X, self.weights)
+        X = self.add_column_with_ones(X)
+        return self.X_dot_weights(X)
+
+    def add_column_with_ones(self, X):
+        # Add one column with ones (for weight_0, the 'bias')
+        # Otherwise you have to calculate weight[0] and weight[1:] separately
+        # If you want to use that check the history (before 30.05.2017)
+        return np.concatenate([np.ones((len(X), 1)), X], axis=1)

@@ -10,11 +10,6 @@ from sklearn import datasets, preprocessing, model_selection
 # Preprocess it with sklearn (not necessary, but improves gradient descent)
 X = preprocessing.scale(X)
 
-# Add one column only with ones (for weight_0 , the weight 'without' feature)
-# Otherwise you have to calculate weight[0] and weight[1:] separately
-# If you want to use that check the history (before 30.05.2017)
-X = np.concatenate([np.ones((len(y), 1)), X], axis=1)
-
 # Divide dataset into train and test data
 X_train, X_test, y_train, y_test = model_selection.train_test_split(X, y, train_size=0.65, random_state=1)
 
