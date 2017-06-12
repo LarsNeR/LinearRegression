@@ -45,7 +45,6 @@ class LinearRegression(object):
         X = self.add_column_with_ones(X)
 
         self.weights = np.zeros(X.shape[1])
-        self.weights_tmp = np.zeros(X.shape[1])
 
         for _ in range(self.n_iter):
             # Gradient descent
