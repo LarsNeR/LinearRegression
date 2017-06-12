@@ -1,5 +1,5 @@
 # Linear Regression
-A simple Linear Regression with Python
+An example of how to create a simple self-developed Linear Regression from scratch in Python 
 
 #### Main.py
 Shows how to use **LinearRegression.py**
