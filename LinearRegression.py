@@ -54,9 +54,9 @@ class LinearRegression(object):
             self.costs_per_iter.append(np.absolute(self.costs(X, y)).sum())
 
     def costs(self, X, y):
-        return self.X_dot_weights(X) - y
+        return self.hypothesis(X) - y
 
-    def X_dot_weights(self, X):
+    def hypothesis(self, X):
         return np.dot(X, self.weights)
 
     def predict(self, X):
@@ -74,7 +74,7 @@ class LinearRegression(object):
             Prediction for every sample in X
         """
         X = self.add_column_with_ones(X)
-        return self.X_dot_weights(X)
+        return self.hypothesis(X)
 
     def add_column_with_ones(self, X):
         # Add one column with ones (for weight_0, the 'bias')
