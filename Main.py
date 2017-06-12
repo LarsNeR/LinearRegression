@@ -11,7 +11,7 @@ from sklearn import datasets, preprocessing, model_selection
 X = preprocessing.scale(X)
 
 # Divide dataset into train and test data
-X_train, X_test, y_train, y_test = model_selection.train_test_split(X, y, train_size=0.65, random_state=1)
+X_train, X_test, y_train, y_test = model_selection.train_test_split(X, y, train_size=0.65)
 
 # Instantiate a new LinearRegression and call its fit-method with the
 # train data
